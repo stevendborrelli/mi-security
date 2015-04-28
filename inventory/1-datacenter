@@ -10,6 +10,9 @@ host-[01:05]
 [consul_servers]
 host-[01:03]
 
+[vault_servers]
+host-[01:03]
+
 [zookeeper_servers]
 host-[01:03]
 
