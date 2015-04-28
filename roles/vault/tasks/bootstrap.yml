@@ -1,0 +1,13 @@
+---
+- name: initialize vault
+  sudo: yes
+  run_once: yes
+  changed_when: no
+  command: curl -1 -X PUT -d '{{ vault_init_json }}' -k https://localhost:8200/v1/sys/init
+  register: vault_init_output
+  tags:
+    - vault
+
+- name: debug
+  debug:
+    msg: "{{ vault_init_output.stdout }}"

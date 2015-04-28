@@ -1,0 +1,16 @@
+[Unit]
+Description=vault
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=on-failure
+RestartSec=2-
+TimeoutStartSec=0
+
+ExecStart=/usr/bin/vault server -config=/etc/vault/vault.config
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
